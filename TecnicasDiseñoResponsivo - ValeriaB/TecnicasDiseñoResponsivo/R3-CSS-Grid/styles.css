@@ -1,0 +1,134 @@
+/* ======== Estilos Generales ======== */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ======== Contenedor Principal con CSS Grid ======== */
+.contenedor {
+    display: grid;
+    gap: 10px;
+    padding: 20px;
+}
+
+/* ======== Menú Lateral ======== */
+.menu-lateral {
+    background-color: #8e6ba4;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-lateral ul li {
+    margin: 10px 0;
+}
+
+.menu-lateral ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: 8px;
+    background: #451c45;
+    border-radius: 5px;
+}
+
+/* ======== Contenido Principal ======== */
+.contenido {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* ======== Barra Lateral ======== */
+.sidebar {
+    background-color: #a9dfe8;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
+
+/* ======== Publicidad (Extra Grandes) ======== */
+.publicidad {
+    background-color: #e74c3c;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
+
+/* ======== Pie de Página ======== */
+footer {
+    background-color: #502c45;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+/* ======== Media Queries para Responsividad ======== */
+
+/*  PC (≥ 1024px) → 3 columnas */
+@media screen and (min-width: 1024px) {
+    .contenedor {
+        grid-template-columns: 1fr 2fr 1fr; /* 3 columnas */
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "nav contenido sidebar";
+    }
+    .menu-lateral { grid-area: nav; }
+    .contenido { grid-area: contenido; }
+    .sidebar { grid-area: sidebar; }
+}
+
+/* Tabletas (600px - 1023px) → 2 columnas */
+@media screen and (max-width: 1023px) and (min-width: 600px) {
+    .contenedor {
+        grid-template-columns: 1fr 1fr; /* 2 columnas */
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+            "nav nav"
+            "contenido sidebar";
+    }
+    .menu-lateral { grid-area: nav; width: 100%; }
+    .contenido { grid-area: contenido; }
+    .sidebar { grid-area: sidebar; }
+}
+
+/* Móviles (≤ 599px) → Todo en columna */
+@media screen and (max-width: 599px) {
+    .contenedor {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "nav"
+            "contenido"
+            "sidebar";
+    }
+    .menu-lateral { grid-area: nav; width: 100%; }
+    .contenido { grid-area: contenido; }
+    .sidebar { grid-area: sidebar; }
+}
+
+/* Extra grandes (≥ 1440px) → 4 columnas con grid-auto-flow: dense */
+@media screen and (min-width: 1440px) {
+    .contenedor {
+        grid-template-columns: 1fr 2fr 1fr 1fr; /* 4 columnas */
+        grid-template-areas: 
+            "nav contenido sidebar publicidad";
+        grid-auto-flow: dense;
+    }
+    .menu-lateral { grid-area: nav; }
+    .contenido { grid-area: contenido; }
+    .sidebar { grid-area: sidebar; }
+    .publicidad { grid-area: publicidad; }
+}

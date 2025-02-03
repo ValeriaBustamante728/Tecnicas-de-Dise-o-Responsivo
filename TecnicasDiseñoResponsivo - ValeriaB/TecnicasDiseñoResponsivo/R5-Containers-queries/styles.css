@@ -1,0 +1,70 @@
+/* ======== Estilos Generales ======== */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 2rem;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+/* ======== Contenedor con Container Queries ======== */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 2rem;
+    contain: inline-size; /* Habilita container queries */
+    container-type: inline-size;
+}
+
+/* ======== Tarjetas ======== */
+.card {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    width: 100%; /* Predeterminado en móviles */
+    text-align: left;
+    animation: bgChange 0.5s ease-in-out;
+}
+
+/* ======== Container Queries ======== */
+@container (min-width: 400px) {
+    .card {
+        width: 100%; /* Una sola columna */
+        background-color: #f4e1d2;
+    }
+}
+
+@container (min-width: 600px) {
+    .card {
+        width: 48%; /* Dos columnas */
+        background-color: #d2e1f4;
+    }
+}
+
+@container (min-width: 900px) {
+    .card {
+        width: 30%; /* Tres columnas */
+        background-color: #eec9f5;
+    }
+}
+
+@container (min-width: 800px) {
+    .grid {
+        flex-direction: row;
+    }
+}
+
+/* ======== Animación de Cambio de Color ======== */
+@keyframes bgChange {
+    0% {
+        background-color: white;
+    }
+    100% {
+        background-color: inherit;
+    }
+}
+

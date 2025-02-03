@@ -1,0 +1,67 @@
+/* ======== Estilos generales ======== */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    padding: 70px;
+    transition: background 0.5s ease-in-out, font-size 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+/* ======== Media Queries ======== */
+
+/* Pantallas pequeñas */
+@media (max-width: 768px) {
+    body {
+        background-color: lightgray;
+        font-size: 16px;
+    }
+}
+
+/* Pantallas medianas */
+@media (min-width: 769px) and (max-width: 1023px) {
+    body {
+        background-color: lightyellow;
+        font-size: 17px;
+    }
+}
+
+/* Pantallas grandes */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    body {
+        background-color: white;
+        font-size: 18px;
+    }
+}
+
+/* Pantallas extra grandes */
+@media (min-width: 1440px) {
+    body {
+        background-color: lightblue;
+        font-size: 20px;
+    }
+}
+
+/* ======== Dark Mode ======== */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #222;
+        color: white;
+    }
+}
+
+/* ======== Animación en cambio de viewport ======== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    animation: fadeIn 0.5s ease-in-out;
+}

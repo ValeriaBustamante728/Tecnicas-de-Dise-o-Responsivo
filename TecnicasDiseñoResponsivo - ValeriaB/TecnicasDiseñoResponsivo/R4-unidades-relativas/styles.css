@@ -1,0 +1,144 @@
+/* ======== Configuración Global ======== */
+html {
+    font-size: 10px; /* Define 1rem = 10px */
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ======== Contenedor Principal con Grid ======== */
+.contenedor {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "header header"
+        "sidebar contenido"
+        "footer footer";
+    gap: 1rem;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+/* ======== Encabezado ======== */
+.header {
+    grid-area: header;
+    background-color: #d068e4;
+    color: white;
+    text-align: center;
+    padding: 2vh;
+    font-size: 2rem;
+}
+
+/* ======== Contenido Principal ======== */
+.contenido {
+    grid-area: contenido;
+    background-color: #f0ecf1;
+    padding: 2rem;
+    font-size: 1.25rem;
+}
+
+/* ======== Barra Lateral ======== */
+.sidebar {
+    grid-area: sidebar;
+    background-color: #b088ca;
+    padding: 2rem;
+    color: white;
+    font-size: 1.5em;
+    width: 25vw; /* 25% del viewport en móviles */
+    height: 25vh;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 1em 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ======== Pie de Página ======== */
+.footer {
+    grid-area: footer;
+    background-color: #b16ea3;
+    color: white;
+    text-align: center;
+    padding: 2vh;
+    font-size: 1rem;
+}
+
+/* ======== Media Queries para Responsividad ======== */
+
+/* PC (≥ 1024px) → Mantiene la estructura de 2 columnas */
+@media screen and (min-width: 1024px) {
+    .contenedor {
+        grid-template-columns: 1fr 3fr;
+    }
+    .sidebar {
+        width: 40vw; /* 40% del viewport en PC */
+        height: 40vh;
+    }
+    .sidebar ul li a {
+        font-size: 3rem; /* Triple del tamaño base */
+    }
+}
+
+/* Tabletas (600px - 1023px) → Se reorganiza en 1 columna */
+@media screen and (max-width: 1023px) and (min-width: 600px) {
+    .contenedor {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "contenido"
+            "sidebar"
+            "footer";
+    }
+    .sidebar {
+        font-size: 1.2rem;
+    }
+    .sidebar ul li a {
+        font-size: 2rem; /* Doble del tamaño base */
+    }
+}
+
+/* Móviles (≤ 599px) → Todo en columna con tamaños ajustados */
+@media screen and (max-width: 599px) {
+    .contenedor {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "contenido"
+            "sidebar"
+            "footer";
+        padding: 1rem;
+    }
+    .header {
+        font-size: 1.5rem;
+    }
+    .contenido {
+        font-size: 1rem;
+    }
+    .sidebar {
+        font-size: 1rem;
+        padding: 1rem;
+        width: 25vw;
+        height: 25vh;
+    }
+    .sidebar ul li a {
+        font-size: 1.5rem; /* Tamaño base en móviles */
+    }
+    .footer {
+        font-size: 0.9rem;
+    }
+}

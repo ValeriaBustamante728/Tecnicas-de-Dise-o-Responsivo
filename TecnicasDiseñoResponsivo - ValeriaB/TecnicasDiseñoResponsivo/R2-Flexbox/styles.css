@@ -1,0 +1,77 @@
+/* ======== Estilos generales ======== */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    padding: 70px;
+    transition: background 0.5s ease-in-out, font-size 0.5s ease-in-out;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+/* ======== Media Queries ======== */
+
+@media (max-width: 768px) {
+    body {
+        background-color: lightgray;
+        font-size: 16px;
+    }
+    .menu-lateral {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+    }
+    .menu-lateral.active {
+        display: flex;
+    }
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        background-color: rgb(247, 245, 245);
+        font-size: 18px;
+    }
+    .menu-lateral {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 1440px) {
+    body {
+        background-color: lightblue;
+        font-size: 20px;
+    }
+}
+
+/* ======== Dark Mode ======== */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #c392d7;
+        color: rgb(12, 11, 11);
+    }
+}
+
+/* ======== Animación en cambio de viewport ======== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    animation: fadeIn 0.5s ease-in-out;
+}
